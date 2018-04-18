@@ -46,5 +46,7 @@ pipeline {
   }
   environment {
     DEV_PROJECT = 'openjdk-app-pipe'
+    TEMPLATE = 'openjdk18-web-basic-s2i-glowroot.yml'
+    APPNAME = 'openjdk-app'
   }
 }
