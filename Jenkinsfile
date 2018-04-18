@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('*** Delete project: DEV_PROJECT') {
+    stage('*** Delete project') {
       steps {
         script {
           openshift.withCluster() {
@@ -12,7 +12,7 @@ pipeline {
         }
       }
     }
-    stage('*** Create project: DEV_PROJECT') {
+    stage('*** Create project') {
       steps {
         script {
           openshift.withCluster() {
@@ -48,7 +48,7 @@ pipeline {
         }
       }
     }
-    stage('*** Deploy pod: APPNAME') {
+    stage('*** Deploy pod') {
       steps {
         script {
           openshift.withCluster() {
