@@ -8,7 +8,7 @@ The example consists of a [customized template](https://github.com/travisrogers0
 The additions in this template are:
  - [Service object](https://github.com/travisrogers05/java-s2i-multiple-jars/blob/master/openjdk18-web-basic-s2i-glowroot.yml#L41#L54) representing the Glowroot endpoint
  - [Route object](https://github.com/travisrogers05/java-s2i-multiple-jars/blob/master/openjdk18-web-basic-s2i-glowroot.yml#L68-#L80) enabling ingress traffic to the Glowroot endpoint
- - [Environment variables](https://github.com/travisrogers05/java-s2i-multiple-jars/blob/master/openjdk18-web-basic-s2i-glowroot.yml#L142-#L146) to add the Glowroot agent to the JV start up
+ - [Environment variables](https://github.com/travisrogers05/java-s2i-multiple-jars/blob/master/openjdk18-web-basic-s2i-glowroot.yml#L142-#L146) to add the Glowroot agent to the JVM start up
 
 
 ## Prerequisites
