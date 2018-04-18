@@ -24,7 +24,6 @@ pipeline {
               }
             }
           }
-          echo "New BuildConfig Created."
         }
       }
     }
@@ -41,7 +40,6 @@ pipeline {
                   }
                 }
             }
-            echo "New BuildConfig Created."
         }
       }
     }
