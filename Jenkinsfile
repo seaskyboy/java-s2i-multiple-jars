@@ -1,6 +1,26 @@
 pipeline {
   agent any
   stages {
+    stage('Delete project: ' DEV_PROJECT) {
+      steps {
+        script {
+          openshift.withCluster() {
+            openshift.withProject(DEV_PROJECT) {
+              openshift.delete("project", DEV_PROJECT)
+            }
+          }
+        }
+      }
+    }
+    stage('Create project: ' DEV_PROJECT) {
+      steps {
+        script {
+          openshift.withCluster() {
+            openshift.newProject(DEV_PROJECT)
+          }
+        }
+      }
+    }
     stage('Create Image') {
       steps {
         script {
