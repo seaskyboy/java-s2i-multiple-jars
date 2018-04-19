@@ -6,7 +6,7 @@ pipeline {
         script {
           openshift.withCluster() {
             openshift.withProject(DEV_PROJECT) {
-              openshift.delete("all", "-l", "application=${DEV_PROJECT}")
+              openshift.delete("all", "-l", "application=${APPNAME}")
             }
           }
         }
