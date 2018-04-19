@@ -1,6 +1,7 @@
 pipeline {
   agent any
   stages {
+/*
     stage('*** Clean up project') {
       steps {
         script {
@@ -12,6 +13,7 @@ pipeline {
         }
       }
     }
+*/
     stage('*** Create pod from template') {
       steps {
         script {
