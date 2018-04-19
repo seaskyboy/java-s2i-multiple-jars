@@ -1,19 +1,6 @@
 pipeline {
   agent any
   stages {
-/*
-    stage('*** Clean up project') {
-      steps {
-        script {
-          openshift.withCluster() {
-            openshift.withProject(DEV_PROJECT) {
-              openshift.delete("all", "-l", "application=${APPNAME}")
-            }
-          }
-        }
-      }
-    }
-*/
     stage('*** Create pod from template') {
       steps {
         script {
@@ -23,39 +10,6 @@ pipeline {
             }
           }
         }
-      }
-    }
-    stage('*** Build image') {
-      steps {
-        script {
-          openshift.withCluster() {
-            openshift.withProject(DEV_PROJECT) {
-              def builds = openshift.selector("bc", APPNAME).related('builds')
-              timeout(6) {
-                builds.untilEach(1) {
-                  return (it.object().status.phase == "Complete")
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    stage('*** Deploy pod') {
-      steps {
-        script {
-          openshift.withCluster() {
-            openshift.withProject(DEV_PROJECT) {
-              def rm = openshift.selector("dc", APPNAME).rollout()
-              timeout(5) {
-                openshift.selector("dc", appName).related('pods').untilEach(1) {
-                  return (it.object().status.phase == "Running")
-                }
-              }
-            }
-          }
-        }
-        
       }
     }
   }
