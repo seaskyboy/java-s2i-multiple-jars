@@ -1,22 +1,22 @@
 pipeline {
   agent any
   stages {
-    stage('*** Delete project') {
-      steps {
-        script {
-          openshift.withCluster() {
-            openshift.withProject(DEV_PROJECT) {
-              openshift.delete("project", DEV_PROJECT)
-            }
-          }
-        }
-      }
-    }
     stage('*** Create project') {
       steps {
         script {
           openshift.withCluster() {
             openshift.newProject(DEV_PROJECT)
+          }
+        }
+      }
+    }
+    stage('*** Clean up project') {
+      steps {
+        script {
+          openshift.withCluster() {
+            openshift.withProject(DEV_PROJECT) {
+              openshift.delete("--all", "-l", "application=${DEV_PROJECT}")
+            }
           }
         }
       }
