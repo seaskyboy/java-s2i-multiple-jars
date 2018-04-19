@@ -6,7 +6,7 @@ pipeline {
         script {
           openshift.withCluster() {
             openshift.withProject(DEV_PROJECT) {
-              openshift.newApp("-f", TEMPLATE, "-p", "APPLICATION_NAME=${APPNAME}")
+              openshift.newApp("-f", TEMPLATE, "-p", "APPLICATION_NAME=${APPNAME}", "--namespace=pipeline-test")
             }
           }
         }
