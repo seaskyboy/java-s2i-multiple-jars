@@ -1,15 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('*** Create project') {
-      steps {
-        script {
-          openshift.withCluster() {
-            openshift.newProject(DEV_PROJECT)
-          }
-        }
-      }
-    }
     stage('*** Clean up project') {
       steps {
         script {
